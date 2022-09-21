@@ -78,7 +78,5 @@ function deletaElemento(tag, id) {
 
   itens.splice(itens.findIndex(elemento => elemento.id === id), 1); /** Achar elemento em que o 'id' seja igual ao 'id' que acabou de ser "clicado" */
 
-  console.log(itens)
-
   localStorage.setItem("itens", JSON.stringify(itens));
 }
