@@ -25,10 +25,11 @@ form.addEventListener("submit", (evento) => {
 
     atualizaElemento(itemAtual);
 
-    itens[existe.id] = itemAtual;
-/** array | posição | escrever por cima do conteúdo */
+    itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual;
+
   } else {
-    itemAtual.id = itens.length;/*caso o item 'NÃO' exista, o 'id' é o tamanho do 'array'*/
+    itemAtual.id = itens[itens.length - 1] ? (itens[itens.length-1]).id + 1 : 0;
+    /** se 'id' já existir, achar no último elemento o 'id' e adicionar '1'*/   /**se não existir nada no array = '0'*/  
 
     criaElemento(itemAtual);
 
@@ -52,7 +53,7 @@ function criaElemento(item) {
 
   novoItem.innerHTML += item.nome;
 
-  novoItem.appendChild(botaoDeleta());
+  novoItem.appendChild(botaoDeleta(item.id));
 
   lista.appendChild(novoItem);
 }
@@ -61,17 +62,23 @@ function atualizaElemento(item) {
   document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade; /** Atualiza o elemento na tela */
 }
 
-function botaoDeleta() {
+function botaoDeleta(id) {
   const elementoBotao = document.createElement("button");
   elementoBotao.innerText = "X";
 
   elementoBotao.addEventListener("click", function() {
-    deletaElemento(this.parentNode); /** Removendo elemento pai do botão */
+    deletaElemento(this.parentNode, id); /** Removendo elemento pai do botão */
   });
 
   return elementoBotao;
 }
 
-function deletaElemento(tag) {
-  tag.remove()
+function deletaElemento(tag, id) {
+  tag.remove();
+
+  itens.splice(itens.findIndex(elemento => elemento.id === id), 1); /** Achar elemento em que o 'id' seja igual ao 'id' que acabou de ser "clicado" */
+
+  console.log(itens)
+
+  localStorage.setItem("itens", JSON.stringify(itens));
 }
