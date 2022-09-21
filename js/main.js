@@ -13,6 +13,7 @@ form.addEventListener("submit", (evento) => {
   const quantidade = evento.target.elements['quantidade'];
 
   const existe = itens.find(elemento => elemento.nome === nome.value);
+  /**           |array| |buscando elemento| |elemento| |digitado no form|*/
 
   const itemAtual = {
     "nome": nome.value,
@@ -20,20 +21,16 @@ form.addEventListener("submit", (evento) => {
   }
 
   if (existe) {
-    itemAtual.id = existe.id
+    itemAtual.id = existe.id; /*adicionando elemento de controle com 'id'*/
 
-    atualizaElemento(itemAtual)
+    atualizaElemento(itemAtual);
   } else {
-    itemAtual.id = itens.length;
+    itemAtual.id = itens.length;/*caso o item 'NÃO' exista, o 'id' é o tamanho do 'array'*/
 
     criaElemento(itemAtual);
 
     itens.push(itemAtual);
   }
-
-
-
-
 
   localStorage.setItem("itens", JSON.stringify(itens)); /* colocando item no localStorage e usando método 'stringify' do 'JSON' para transformar em string*/
 
@@ -47,7 +44,7 @@ function criaElemento(item) {
 
   const numeroItem = document.createElement("strong");
   numeroItem.innerHTML = item.quantidade;
-  numeroItem.dataset.id = item.id;
+  numeroItem.dataset.id = item.id; /*criando id*/
   novoItem.appendChild(numeroItem);
 
   novoItem.innerHTML += item.nome;
@@ -56,5 +53,5 @@ function criaElemento(item) {
 }
 
 function atualizaElemento(item) {
-  document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade;
+  document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade; /** Atualiza o elemento na tela */
 }
