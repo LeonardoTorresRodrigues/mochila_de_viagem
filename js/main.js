@@ -24,6 +24,9 @@ form.addEventListener("submit", (evento) => {
     itemAtual.id = existe.id; /*adicionando elemento de controle com 'id'*/
 
     atualizaElemento(itemAtual);
+
+    itens[existe.id] = itemAtual;
+/** array | posição | escrever por cima do conteúdo */
   } else {
     itemAtual.id = itens.length;/*caso o item 'NÃO' exista, o 'id' é o tamanho do 'array'*/
 
