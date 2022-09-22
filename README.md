@@ -6,7 +6,7 @@ Aplicação web em que podemos adicionar, atualizar e remover itens em uma mochi
 | -------------  | --- |
 | :sparkles: Nome        | **Mochila de Viagem**
 | :label: Tecnologias | JavaScript, HTML e CSS
-| :rocket: URL         | https://url-deploy.com.br
+| :rocket: URL         | https://mochila-de-viagem-inxh.vercel.app/
 | :fire: Desafio     | https://cursos.alura.com.br/course/javascript-web-armazenando-dados-navegador
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
