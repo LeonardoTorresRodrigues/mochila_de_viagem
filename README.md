@@ -17,3 +17,7 @@ Aplicação web em que podemos adicionar, atualizar e remover itens em uma mochi
 Projeto feito durante curso "JavaScript na Web: armazenando dados no navegador" da Alura.
 
 O objetivo deste projeto foi a prática com o JavaScript.
+
+
+https://user-images.githubusercontent.com/91892938/191791804-0cb493c1-9d74-4298-b915-fc124f0ace3b.mp4
+
